@@ -13,7 +13,7 @@ const Signup = () => {
   });
   const [error, setError] = useState("");
   const router = useRouter();
-  const onSubmit = async (e) => {
+  const onSubmit = async (e: any) => {
     e.preventDefault();
     try {
       const response = await fetch("/api/auth/signup", {
@@ -37,7 +37,7 @@ const Signup = () => {
       console.log(error);
     }
   };
-  const onChange = (e) => {
+  const onChange = (e: any) => {
     setState((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
