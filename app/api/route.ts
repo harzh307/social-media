@@ -7,17 +7,6 @@ const app = express();
 
 app.use(express.json());
 
-mongoose
-  .connect(process.env.DB_URL)
-  .then((mon) => {
-    console.log("connected");
-    NextResponse.json({ message: "connected" });
-    return mon;
-  })
-  .catch((err) => {
-    console.log("Failed");
-    return NextResponse.json(err);
-  });
-export const GET = (req: NextRequest, res: NextResponse, next) => {
+export const GET = (req: NextRequest, res: NextResponse) => {
   return NextResponse.json({ message: "hello" });
 };

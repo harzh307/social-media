@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import connectToDatabase from "@/app/provider/connectToDb";
+import connectToDatabase from "../../provider/connectToDb";
 import User from "../../provider/models/User";
 
 export const GET = async () => {

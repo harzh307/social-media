@@ -1,12 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
-import connectToDatabase from "@/app/provider/connectToDb";
+import connectToDatabase from "../../../provider/connectToDb";
 import User from "../../../provider/models/User";
 import Posts from "../../../provider/models/Posts";
 
 export const GET = async (req: NextRequest, res: NextResponse) => {
   const db = await connectToDatabase();
-  console.log(res.params.user);
-
+  // @ts-ignore
   const user = await User.findById(res?.params?.user)
     .populate({
       path: "posts",

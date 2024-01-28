@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import connectToDatabase from "@/app/provider/connectToDb";
-import Posts from "@/app/provider/models/Posts";
-import User from "@/app/provider/models/User";
+import connectToDatabase from "../../provider/connectToDb";
+import Posts from "../../provider/models/Posts";
+import User from "../../provider/models/User";
 
 export const GET = async () => {
   const db = await connectToDatabase();

@@ -1,6 +1,4 @@
-import { PageProps } from "../../../../.next/types/app/page";
-
-export default function Users(props: PageProps) {
+export default function Users(props: any) {
   console.log(props);
 
   function randomNumber(count: number) {
