@@ -12,13 +12,13 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
     const db = connectToDatabase();
     const { email, password, name } = await req?.json();
     if (!email) {
-      return Response.json("Email is required");
+      return Response.json({ message: "Email is required" });
     }
     if (!password) {
-      return Response.json("Password is required");
+      return Response.json({ message: "Password is required" });
     }
     if (!name) {
-      return Response.json("Name is required");
+      return Response.json({ message: "Name is required" });
     }
     const existingUser = await User.findOne(
       {
@@ -27,9 +27,9 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
       {}
     );
     if (existingUser) {
-      return Response.json(
-        "User already exist with the same email, login insted"
-      );
+      return Response.json({
+        message: "User already exist with the same email, login insted",
+      });
     }
     const hashPassword = bcrypt.hashSync(password);
     const user = new User({
