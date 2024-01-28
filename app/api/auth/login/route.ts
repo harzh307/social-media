@@ -4,8 +4,8 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { NextResponse, NextRequest } from "next/server";
 import "dotenv/config";
-import User from "../../../provider/models/User";
-import connectToDatabase from "../../../provider/connectToDb";
+import User from "../../../provider/models/user";
+import connectToDatabase from "../../../provider/connect-to-db";
 
 export const POST = async (req: NextRequest, res: NextResponse) => {
   try {
