@@ -58,11 +58,10 @@ const login = async (req, res, next) => {
       email,
     }).select("+password");
     if (!existingUser) {
-      return res
-        .status(400)
-        .send(
-          "User does not exist with this same email, try different email insted"
-        );
+      return Response.json({
+        message:
+          "User does not exist with this same email, try different email insted",
+      });
     }
     const isPasswordCorrect = bcrypt.compareSync(
       password,
