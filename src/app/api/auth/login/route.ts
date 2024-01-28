@@ -21,9 +21,10 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
       email,
     }).select("+password");
     if (!existingUser) {
-      return Response.json(
-        "User does not exist with this same email, try different email insted"
-      );
+      return Response.json({
+        message:
+          "User does not exist with this same email, try different email insted",
+      });
     }
     const isPasswordCorrect = bcrypt.compareSync(
       password,
